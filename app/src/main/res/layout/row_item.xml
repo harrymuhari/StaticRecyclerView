@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:contentPadding="8dp"
+    app:cardUseCompatPadding="true"
+    >
+<RelativeLayout
+    android:layout_width="300dp" android:layout_height="match_parent"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:id="@+id/rlCard">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/ivFlag"
+        android:src="@drawable/abc_ic_menu_copy_mtrl_am_alpha"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvCountry"
+        android:text="@string/country"
+        android:layout_toRightOf="@+id/ivFlag"
+        android:layout_marginLeft="30dp"
+        android:textSize="28sp"/>
+</RelativeLayout>
+</android.support.v7.widget.CardView>
