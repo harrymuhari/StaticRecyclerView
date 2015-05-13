@@ -10,6 +10,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.harry.staticrecyclerview.AdapterAnimationStuff.FadeInAdapter;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,10 +28,22 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        items = new ArrayList<Item>();
+        items = new ArrayList<>();
 
-        String[] countries = {"Kenya", "Tanzania", "Uganda", "Rwanda", "Burundi"};
-        int[] flags = {R.mipmap.ic_kenya, R.mipmap.ic_tanzania, R.mipmap.ic_uganda, R.mipmap.ic_rwanda, R.mipmap.ic_burundi};
+        String[] countries = {"Kenya", "Tanzania", "Uganda", "Rwanda", "Burundi",
+                "Kenya", "Tanzania", "Uganda", "Rwanda", "Burundi",
+                "Kenya", "Tanzania", "Uganda", "Rwanda", "Burundi",
+                "Kenya", "Tanzania", "Uganda", "Rwanda", "Burundi",
+                "Kenya", "Tanzania", "Uganda", "Rwanda", "Burundi",
+                "Kenya", "Tanzania", "Uganda", "Rwanda", "Burundi"};
+
+        int[] flags = {R.mipmap.ic_kenya, R.mipmap.ic_tanzania, R.mipmap.ic_uganda, R.mipmap.ic_rwanda, R.mipmap.ic_burundi,
+                R.mipmap.ic_kenya, R.mipmap.ic_tanzania, R.mipmap.ic_uganda, R.mipmap.ic_rwanda, R.mipmap.ic_burundi,
+                R.mipmap.ic_kenya, R.mipmap.ic_tanzania, R.mipmap.ic_uganda, R.mipmap.ic_rwanda, R.mipmap.ic_burundi,
+                R.mipmap.ic_kenya, R.mipmap.ic_tanzania, R.mipmap.ic_uganda, R.mipmap.ic_rwanda, R.mipmap.ic_burundi,
+                R.mipmap.ic_kenya, R.mipmap.ic_tanzania, R.mipmap.ic_uganda, R.mipmap.ic_rwanda, R.mipmap.ic_burundi,
+                R.mipmap.ic_kenya, R.mipmap.ic_tanzania, R.mipmap.ic_uganda, R.mipmap.ic_rwanda, R.mipmap.ic_burundi};
+
         recyclerView = (RecyclerView) findViewById(R.id.rvList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -44,8 +58,10 @@ public class MainActivity extends ActionBarActivity {
         }
 
         Log.i(TAG, "Items List populated?? " + items.size() + " " + items.toString());
+
         adapter = new MyRecyclerViewAdapter(getApplicationContext(), items);
-        recyclerView.setAdapter(adapter);
+
+        recyclerView.setAdapter(new FadeInAdapter(adapter));
 
     }
 
