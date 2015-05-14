@@ -15,7 +15,6 @@ import java.util.List;
 public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyViewHolder>{
     List<Item> items;
     Context context;
-    LayoutInflater inflater;
 
     public MyRecyclerViewAdapter(Context context, List<Item> items){
         this.context = context;
@@ -24,10 +23,13 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyViewHolder>{
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.row_item, null);
 
-        MyViewHolder holder = new MyViewHolder(view);
-        return holder;
+        /*important to pass the viewGroup as the parent and false for attachToRoot,
+        otherwise the cardview won't respect some layout params: an issue i had with the cards layout_width
+        */
+
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.row_item, viewGroup, false);
+        return new MyViewHolder(view);
     }
 
     @Override
